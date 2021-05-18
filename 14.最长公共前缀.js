@@ -20,6 +20,27 @@ var longestCommonPrefix = function (strs) {
   }
   return ''
 };
+
+// 20210519  思路跟以前差不多
+var longestCommonPrefix = function (strs) {
+  // console.log(strs[0]);
+  if (strs.length === 0) return ''
+  //1.先找到最小个数
+  let minLength = 200
+  strs.forEach(item => {
+    if (item.length < minLength) minLength = item.length
+  })
+  const str = strs[0].slice(0, minLength)
+  for (let i = 0; i < minLength; i++) {
+    for (let j = 0; j < strs.length; j++) {
+      const element = strs[j];
+      if (element[i] !== str[i]) {
+        return str.slice(0, i)
+      }
+    }
+  }
+  return str
+};
 // console.log(longestCommonPrefix(["c", "acc", "ccc"]));
 // @lc code=end
 
