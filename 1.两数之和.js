@@ -25,6 +25,24 @@ var twoSum = function (nums, target) {
   }
 
 };
+
+var twoSum = function (nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    const element = nums[i];
+    const index = nums.indexOf(target - element)
+    if (index > -1 && i !== index) {
+      return [i, index]
+    }
+  }
+};
+
+var twoSum = function (nums, target) {
+  const map = new Map()
+  for (let i = 0; i < nums.length; i++) {
+    const element = nums[i];
+    const
+  }
+}
 console.log(twoSum([2, 7, 11, 15], 9));
 // @lc code=end
 
