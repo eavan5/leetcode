@@ -16,5 +16,9 @@ var rotate = function (nums, k) {
   }
   return nums
 };
+var rotate = function (nums, k) {
+  nums.splice(0, 0, ...nums.splice(-(k %= nums.length), k))
+  return nums
+};
 // @lc code=end
 
