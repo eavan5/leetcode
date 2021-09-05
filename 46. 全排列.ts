@@ -1,7 +1,7 @@
 function permute(nums: number[]): number[][] {
   let res: number[][] = []
   const set = new Set()
-  function backtracking(temp: number[]) {
+  function backtracking(temp: number[]=[]) {
     if (temp.length === nums.length) {
       res.push(temp.slice())
       return
@@ -15,6 +15,6 @@ function permute(nums: number[]): number[][] {
       set.delete(item)
     }
   }
-  backtracking([])
+  backtracking()
   return res
 };
