@@ -16,7 +16,7 @@ import { TreeNode } from './types'
 function inorderTraversal(root: TreeNode | null, temp: number[] = []): number[] {
   if (!root) return temp
   inorderTraversal(root.left,temp)
+  inorderTraversal(root.right, temp)
   temp.push(root.val)
-  inorderTraversal(root.right,temp)
   return temp
 };
