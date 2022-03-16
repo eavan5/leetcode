@@ -30,4 +30,4 @@ var trap = function (height) {
 // 性能有点差
 // 思路参考 https://www.bilibili.com/video/BV1HE411Z7By?from=search&seid=15107945570527186601&spm_id_from=333.337.0.0
 
-console.log(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]));
+// console.log(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]));
