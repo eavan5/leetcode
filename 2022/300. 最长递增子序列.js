@@ -11,5 +11,9 @@ var lengthOfLIS = function (nums) {
       }
     }
   }
+  console.log(dp);
   return Math.max(...dp)
 };
+
+
+// lengthOfLIS([1, 3, 6, 7, 9, 4, 10, 5, 6])
