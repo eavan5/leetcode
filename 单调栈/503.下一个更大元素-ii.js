@@ -10,16 +10,16 @@
  * @return {number[]}
  */
 var nextGreaterElements = function(nums) {
-  const stack = [],res = Array(nums.length*2).fill(-1)
-  const newNums = [...nums, ...nums]
-  for (let i = 0; i < newNums.length; i++) {
-    const current = newNums[i];
-    while (newNums[stack.at(-1)] < current) {
+  const stack = [],res = Array(nums.length).fill(-1)
+  // const newNums = [...nums, ...nums]
+  for (let i = 0; i < nums.length*2; i++) {
+    let current = nums[i % nums.length]
+    while (nums[stack.at(-1)] < current) {
       res[stack.pop()] = current
     }
-    stack.push(i)
+    stack.push(i%nums.length)
   }
-  return res.slice(0,nums.length)
+  return res
 };
 // @lc code=end
 
