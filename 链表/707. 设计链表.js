@@ -81,10 +81,7 @@ MyLinkedList.prototype.addAtIndex = function (index, val) {
 		this.addAtTail(val)
 		return
 	}
-	let prev = new ListNode(null, this._head)
-	while (index-- > 0) {
-		prev = prev.next
-	}
+	let prev = this.getNode(index - 1)
 	prev.next = new ListNode(val, prev.next)
 	this._size++
 }
