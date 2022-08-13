@@ -4,11 +4,14 @@
  * @return {number[]}
  */
 var intersection = function (nums1, nums2) {
-  return [...new Set(nums1)].reduce((t, c) => nums2.includes(c) ? [c, ...t] : t, [])
-};
+	const set = new Set(nums1)
+	const res = new Set()
+	for (const character of nums2) {
+		if (set.has(character)) {
+			res.add(character)
+		}
+	}
+	return Array.from(res)
+}
 
-var intersection = function (nums1, nums2) {
-  return [...new Set(nums1)].filter(v => nums2.includes(v))
-};
-
-console.log(intersection([4, 9, 5, 4], [9, 4, 9, 8, 4]));
+console.log(intersection([1, 2, 2, 1], [2, 2]))

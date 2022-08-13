@@ -1,15 +1,23 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
 var lengthOfLongestSubstring = function (s) {
-   if (!s) return 0
-  let max = 1,p1=0,map = new Map
-  for (let p2 = 0; p2 < s.length; p2++){
-    const current = s[p2]
+  if (!s) return 0
+  let max = 1
+  const map = new Map()
+  let slow = 0, fast = 0
+  while (fast < s.length) {
+    const current = s[fast]
     if (map.has(current)) {
-      p1 = Math.max(map.get(current)+1,p1)
+      slow = Math.max(map.get(current) + 1, slow)
     }
-    map.set(current,p2)
-    max = Math.max(max,p2-p1+1)
+    map.set(current, fast)
+    max = Math.max(max, fast - slow + 1)
+    fast++
   }
   return max
 };
 
-console.log(lengthOfLongestSubstring('pwwkew'));
+
+console.log(lengthOfLongestSubstring("abba"));

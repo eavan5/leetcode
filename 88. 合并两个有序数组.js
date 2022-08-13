@@ -6,20 +6,21 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function (nums1, m, nums2, n) {
-  var cache = new Array(m + n).fill(0)
-  let p1 = 0, p2 = 0
-  var flag
-  while (p1 < m || p2 < n) {
-    if (p1 === m) {
-      flag = nums2[p2++]
-    } else if (p2 === n) {
-      flag = nums1[p1++]
-    } else if (nums1[p1] < nums2[p2]) {
-      flag = nums1[p1++]
+  let i = 0, j = 0
+  const map = Array.from({ length: m + n }).fill(0)
+  while (i < m || j < n) {
+    if (i === m) {
+      assignMap(nums2[j++])
+    } else if (j === n) {
+      assignMap(nums1[i++])
+    } else if (nums1[i] < nums2[j]) {
+      assignMap(nums1[i++])
     } else {
-      flag = nums2[p2++]
+      assignMap(nums2[j++])
     }
-    cache[p1 + p2 - 1] = flag
+    function assignMap (arg) {
+      map[i + j - 1] = arg
+    }
   }
-  cache.forEach((item, index) => nums1[index] = item)
+  map.forEach((item, index) => nums1[index] = item)
 };
