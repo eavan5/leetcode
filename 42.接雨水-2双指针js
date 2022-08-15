@@ -1,0 +1,22 @@
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var trap = function (height) {
+	let res = 0
+	for (let i = 1; i < height.length - 1; i++) {
+		let lHeight = height[i]
+		let rHeight = height[i]
+		for (let j = i - 1; j >= 0; j--) {
+			lHeight = Math.max(lHeight, height[j])
+		}
+		for (let j = i + 1; j < height.length; j++) {
+			rHeight = Math.max(rHeight, height[j])
+		}
+		const currentHeight = Math.min(lHeight, rHeight) - height[i]
+		if (currentHeight > 0) {
+			res += currentHeight
+		}
+	}
+	return res
+}
