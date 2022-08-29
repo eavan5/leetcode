@@ -10,7 +10,6 @@ var findKthLargest = function (nums, k) {
 		right = len - 1
 	while (true) {
 		const pivot = partition(nums, left, right)
-		console.log(nums, pivot)
 		if (pivot === target) {
 			return nums[target]
 		} else if (pivot > target) {
@@ -34,6 +33,3 @@ function partition(arr, l, r) {
 	;[arr[pivot], arr[r]] = [arr[r], arr[pivot]]
 	return r
 }
-
-// 有个问题，需要随机快排，不然会慢一点
-findKthLargest([3, 2, 1, 5, 6, 4], 2)
