@@ -1,37 +1,23 @@
-/*
- * @lc app=leetcode.cn id=46 lang=javascript
- *
- * [46] 全排列
- */
-
-// @lc code=start
-/**
- * @param {number[]} nums
- * @return {number[][]}
- */
 /**
  * @param {number[]} nums
  * @return {number[][]}
  */
 var permute = function (nums) {
-  const res = []
-  const usedMap = new Set // 用来映射用的
-  backTracking(nums, nums.length, usedMap)
-  return res
-  function backTracking (nums, len, usedMap, temp = []) {
-    for (const item of nums) {
-      if (usedMap.has(item)) continue // 如果有相同的就继续循环
-      usedMap.add(item)
-      temp.push(item)
-      if (temp.length === len) {
-        res.push([...temp])
-      }
-      backTracking(nums, len, usedMap, temp) // 递归
-      temp.pop() // 回溯
-      usedMap.delete(item)
-    }
-  }
-
-};
-// @lc code=end
-
+	const res = []
+	const set = new Set()
+	backtracking()
+	return res
+	function backtracking(temp = []) {
+		if (temp.length === nums.length) {
+			res.push([...temp])
+			return
+		}
+		for (let i = 0; i < nums.length; i++) {
+			const current = nums[i]
+			if (set.has(current)) continue
+			set.add(current)
+			backtracking([...temp, current])
+			set.delete(current)
+		}
+	}
+}
