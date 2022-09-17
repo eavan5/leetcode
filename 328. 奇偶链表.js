@@ -14,7 +14,7 @@ var oddEvenList = function (head) {
 	let odd = head,
 		even = head.next
 	let evenHead = even
-	while (odd && even?.next) {
+	while (even?.next) {
 		odd.next = even.next
 		odd = odd.next
 		even.next = odd.next
